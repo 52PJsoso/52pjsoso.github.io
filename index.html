@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>软件功能展示</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>软件功能展示</h1>
+            <p class="subtitle">点击下方功能卡片查看详细演示</p>
+        </header>
+        
+        <div class="features-grid">
+            <div class="feature-card" data-video="demo1.mp4">
+                <div class="feature-icon">📊</div>
+                <h3>数据分析</h3>
+                <p>强大的数据分析功能，帮助您更好地理解业务数据</p>
+            </div>
+            
+            <div class="feature-card" data-video="demo2.mp4">
+                <div class="feature-icon">📈</div>
+                <h3>报表生成</h3>
+                <p>一键生成专业报表，支持多种格式导出</p>
+            </div>
+            
+            <div class="feature-card" data-video="demo3.mp4">
+                <div class="feature-icon">🔍</div>
+                <h3>智能搜索</h3>
+                <p>快速定位所需信息，提高工作效率</p>
+            </div>
+            
+            <div class="feature-card" data-video="demo4.mp4">
+                <div class="feature-icon">🔄</div>
+                <h3>自动同步</h3>
+                <p>实时数据同步，确保信息及时更新</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 视频弹窗 -->
+    <div class="video-modal" id="videoModal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <video id="demoVideo" controls>
+                您的浏览器不支持视频播放
+            </video>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
