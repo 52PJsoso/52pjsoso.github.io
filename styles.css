@@ -4,70 +4,159 @@
     box-sizing: border-box;
 }
 
+:root {
+    --primary-color: #1a73e8;
+    --secondary-color: #4285f4;
+    --warning-color: #ea4335;
+    --success-color: #34a853;
+    --text-color: #202124;
+    --text-secondary: #5f6368;
+    --background-color: #f8f9fa;
+    --card-background: #ffffff;
+    --border-radius: 12px;
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
 body {
     font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
-    background-color: #f5f7fa;
-    color: #333;
+    background-color: var(--background-color);
+    color: var(--text-color);
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem;
-}
-
-header {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-h1 {
-    font-size: 2.5rem;
-    color: #2c3e50;
-    margin-bottom: 1rem;
-}
-
-.subtitle {
-    color: #666;
-    font-size: 1.1rem;
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
     padding: 1rem;
 }
 
-.feature-card {
-    background: white;
-    border-radius: 10px;
-    padding: 2rem;
+.main-header {
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+h1 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.contact-info {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.wechat-card {
+    background: linear-gradient(135deg, #07C160, #0AAD4F);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(7, 193, 96, 0.3);
+}
+
+.wechat-number {
+    font-weight: bold;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+
+.warning-text {
+    color: var(--warning-color);
+    font-weight: bold;
+    margin: 1rem 0;
+    padding: 0.8rem;
+    background: rgba(234, 67, 53, 0.1);
+    border-radius: var(--border-radius);
+    font-size: 0.95rem;
+}
+
+.version-info {
+    color: var(--success-color);
+    font-weight: bold;
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+}
+
+.notice {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.features-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.feature-section {
+    background: var(--card-background);
+    border-radius: var(--border-radius);
+    padding: 1.2rem;
+    box-shadow: var(--shadow);
+}
+
+.section-title {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+.feature-card {
+    background: var(--card-background);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius);
+    padding: 1.2rem;
+    text-align: center;
+    transition: all 0.3s ease;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
 }
 
 .feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+    border-color: var(--primary-color);
 }
 
 .feature-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.feature-card h3 {
-    color: #2c3e50;
+    font-size: 1.8rem;
     margin-bottom: 0.5rem;
 }
 
-.feature-card p {
-    color: #666;
-    font-size: 0.9rem;
+.feature-card h3 {
+    color: var(--text-color);
+    font-size: 0.95rem;
+    margin: 0;
+    line-height: 1.4;
 }
 
 /* 视频弹窗样式 */
@@ -78,49 +167,98 @@ h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.9);
     z-index: 1000;
 }
 
 .modal-content {
     position: relative;
-    width: 80%;
+    width: 95%;
     max-width: 800px;
     margin: 5% auto;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
+    background: var(--card-background);
+    padding: 1rem;
+    border-radius: var(--border-radius);
 }
 
 .close-button {
     position: absolute;
-    right: 20px;
-    top: 10px;
-    font-size: 24px;
+    right: 1rem;
+    top: 0.5rem;
+    font-size: 1.5rem;
     cursor: pointer;
-    color: #666;
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
+    z-index: 1001;
 }
 
 .close-button:hover {
-    color: #333;
+    color: var(--text-color);
 }
 
 video {
     width: 100%;
-    border-radius: 5px;
+    border-radius: var(--border-radius);
+    background: #000;
 }
 
 @media (max-width: 768px) {
     .container {
+        padding: 0.5rem;
+    }
+    
+    .main-header {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    .wechat-card {
+        padding: 0.8rem 1rem;
+        font-size: 1rem;
+        flex-wrap: wrap;
+    }
+    
+    .wechat-number {
+        font-size: 1.1rem;
+    }
+    
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .feature-section {
         padding: 1rem;
     }
     
-    .features-grid {
-        grid-template-columns: 1fr;
+    .section-title {
+        font-size: 1.2rem;
+    }
+    
+    .feature-card {
+        padding: 1rem;
+    }
+    
+    .feature-icon {
+        font-size: 1.5rem;
+    }
+    
+    .feature-card h3 {
+        font-size: 0.9rem;
     }
     
     .modal-content {
         width: 95%;
         margin: 10% auto;
+        padding: 0.8rem;
+    }
+    
+    .close-button {
+        right: 0.8rem;
+        top: 0.3rem;
+        font-size: 1.3rem;
     }
 } 
