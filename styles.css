@@ -216,6 +216,51 @@ video {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
+.tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin: 0 0 1rem 0;
+}
+
+.tab-button {
+    flex: 1;
+    padding: 0.6rem 0.8rem;
+    background: var(--card-background);
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    color: var(--text-color);
+    transition: all 0.2s ease;
+}
+
+.tab-button.active {
+    background: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+}
+
+/* 通过 body 类名控制显示哪个面板 */
+body.tab-wujie #forward,
+body.tab-wujie #moments,
+body.tab-wujie #group,
+body.tab-wujie #fans,
+body.tab-wujie #batch,
+body.tab-wujie #others {
+    display: none;
+}
+
+body.tab-tlx #full-list {
+    display: none;
+}
+
+/* 无界模式下隐藏旧汇总列表，腾领袖模式下隐藏无界9分类 */
+body.tab-wujie #full-list {
+    display: none;
+}
+body.tab-tlx .wujie-section {
+    display: none;
+}
+
 @media (max-width: 768px) {
     .container {
         padding: 0.5rem;

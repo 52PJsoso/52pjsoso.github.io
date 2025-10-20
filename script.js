@@ -4,6 +4,27 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeButton = document.querySelector('.close-button');
     const featureCards = document.querySelectorAll('.feature-card');
 
+    // Tab 切换
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const body = document.body;
+    // 默认显示无界
+    body.classList.add('tab-wujie');
+
+    tabButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            tabButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const target = btn.getAttribute('data-target');
+            if (target === 'wujie') {
+                body.classList.remove('tab-tlx');
+                body.classList.add('tab-wujie');
+            } else {
+                body.classList.remove('tab-wujie');
+                body.classList.add('tab-tlx');
+            }
+        });
+    });
+
     // 点击功能卡片打开视频
     featureCards.forEach(card => {
         card.addEventListener('click', function() {
