@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Tab 切换
     const tabButtons = document.querySelectorAll('.tab-button');
     const body = document.body;
-    // 默认显示无界
-    body.classList.add('tab-wujie');
+    // 默认显示腾领袖
+    body.classList.add('tab-tlx');
 
     tabButtons.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -59,4 +59,4 @@ document.addEventListener('DOMContentLoaded', function() {
             video.src = '';
         }
     });
-}); 
+});
