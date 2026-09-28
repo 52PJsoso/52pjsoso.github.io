@@ -19,10 +19,14 @@ test('hides tabs and initializes the Tenglingxiu view', () => {
   assert.match(css, /\.tabs\s*\{[^}]*display:\s*none\s*;/s);
   assert.match(script, /body\.classList\.add\(['"]tab-tlx['"]\)/);
   assert.doesNotMatch(script, /默认显示无界/);
+  assert.match(html, /class="tab-button" data-target="wujie">无界<\/button>/);
+  assert.match(html, /class="tab-button active" data-target="tlx">腾领袖<\/button>/);
 });
 
 test('keeps Wujie content and video resources in source', () => {
   assert.match(html, /id="full-list"/);
-  assert.match(html, /class="feature-section wujie-section"/);
-  assert.ok((html.match(/\/wujie\//g) || []).length >= 70);
+  assert.equal((html.match(/class="feature-section wujie-section"/g) || []).length, 9);
+  assert.equal((html.match(/\/wujie\//g) || []).length, 141);
+  assert.match(css, /body\.tab-tlx #full-list\s*\{[^}]*display:\s*none\s*;/s);
+  assert.match(css, /body\.tab-tlx \.wujie-section\s*\{[^}]*display:\s*none\s*;/s);
 });

@@ -127,4 +127,3 @@ body.classList.add('tab-tlx');
 运行：`node --test tests/ui-contract.test.js`
 
 预期：3 项测试全部通过，无失败。
-
