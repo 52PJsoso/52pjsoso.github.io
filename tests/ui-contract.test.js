@@ -15,6 +15,17 @@ test('shows the selected compatibility and V8.0.77 copy', () => {
   assert.doesNotMatch(html, /V8\.0\.60/);
 });
 
+test('shows after-sales protection between version and order notices', () => {
+  const versionIndex = html.indexOf('我们已经升级至 V8.0.77 版本，请放心购买。');
+  const serviceIndex = html.indexOf('class="service-notice"');
+  const orderIndex = html.indexOf('下单前先咨询客服核实再下单。');
+
+  assert.match(html, /<strong class="service-notice-title">售后保障<\/strong>/);
+  assert.match(html, /购买系统即享永久更新与持续售后服务。购买时绑定的本机如遇系统或软件故障，可联系客服免费重装。/);
+  assert.ok(versionIndex < serviceIndex && serviceIndex < orderIndex);
+  assert.match(css, /\.service-notice\s*\{[^}]*background:\s*#eef5ff\s*;[^}]*border-left:\s*4px solid var\(--primary-color\)\s*;[^}]*text-align:\s*left\s*;/s);
+});
+
 test('hides tabs and initializes the Tenglingxiu view', () => {
   assert.match(css, /\.tabs\s*\{[^}]*display:\s*none\s*;/s);
   assert.match(script, /body\.classList\.add\(['"]tab-tlx['"]\)/);

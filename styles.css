@@ -91,6 +91,28 @@ h1 {
     font-size: 0.95rem;
 }
 
+.service-notice {
+    margin: 0.8rem 0 0.5rem;
+    padding: 0.8rem 1rem;
+    background: #eef5ff;
+    border-left: 4px solid var(--primary-color);
+    border-radius: 6px;
+    text-align: left;
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+.service-notice-title {
+    display: block;
+    margin-bottom: 0.2rem;
+    color: var(--primary-color);
+    font-size: 0.95rem;
+}
+
+.service-notice p {
+    margin: 0;
+}
+
 .notice {
     color: var(--text-secondary);
     font-size: 0.9rem;
