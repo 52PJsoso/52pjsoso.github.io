@@ -104,8 +104,8 @@ h1 {
 
 .service-notice-title {
     display: block;
-    margin-bottom: 0.2rem;
-    color: var(--primary-color);
+    margin: 0 0 0.2rem;
+    color: #1967d2;
     font-size: 0.95rem;
 }
 

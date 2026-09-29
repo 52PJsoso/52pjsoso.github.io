@@ -20,10 +20,12 @@ test('shows after-sales protection between version and order notices', () => {
   const serviceIndex = html.indexOf('class="service-notice"');
   const orderIndex = html.indexOf('下单前先咨询客服核实再下单。');
 
-  assert.match(html, /<strong class="service-notice-title">售后保障<\/strong>/);
+  assert.match(html, /<aside class="service-notice" aria-labelledby="service-notice-title">/);
+  assert.match(html, /<h2 id="service-notice-title" class="service-notice-title">售后保障<\/h2>/);
   assert.match(html, /购买系统即享永久更新与持续售后服务。购买时绑定的本机如遇系统或软件故障，可联系客服免费重装。/);
   assert.ok(versionIndex < serviceIndex && serviceIndex < orderIndex);
   assert.match(css, /\.service-notice\s*\{[^}]*background:\s*#eef5ff\s*;[^}]*border-left:\s*4px solid var\(--primary-color\)\s*;[^}]*text-align:\s*left\s*;/s);
+  assert.match(css, /\.service-notice-title\s*\{[^}]*color:\s*#1967d2\s*;/s);
 });
 
 test('hides tabs and initializes the Tenglingxiu view', () => {
